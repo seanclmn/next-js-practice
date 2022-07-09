@@ -4,9 +4,10 @@ import type { NextPage } from 'next'
 import { InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface HomeProps {
-  data: Object
+  data: String
 }
 
 export const getServerSideProps = async () =>{
@@ -21,13 +22,12 @@ export const getServerSideProps = async () =>{
 
 
 const Home: NextPage = ({data}) => {
-
-
-
+  console.log(data)
   return (
     <div className="">
+      <p>{data.jlpt}</p>
       <p>hello</p>
-      <p>{JSON.stringify(data)}</p>
+      <Link href="/page" prefetch={false}><p>link to page</p></Link>
     </div>
   )
 }
